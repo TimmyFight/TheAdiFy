@@ -1,11 +1,7 @@
-import Header from "../../Components/Header/Header";
+import PlayerWrapper from "../../Components/PlayerWrapper/PlayerWrapper";
 
 function Home() {
-  return (
-    <div className="Home">
-      <Header />
-    </div>
-  );
+  return <PlayerWrapper />;
 }
 
 export default Home;
