@@ -6,7 +6,12 @@ const ListOfTracksStyled = styled.div`
   height: 100%;
 `;
 
-function ListOfTracks() {
+function ListOfTracks(props) {
+  const { listOfTracks } = props;
+  listOfTracks.forEach((track, index) => {
+    console.log("Track index " + index + " track name: " + track.name);
+  });
+
   return (
     <ListOfTracksStyled>
       <Track />
