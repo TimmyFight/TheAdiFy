@@ -1,4 +1,4 @@
-import config from "config.json";
+const config = require("../config.json");
 
 /**
  * This is an example of a basic node.js script that performs
