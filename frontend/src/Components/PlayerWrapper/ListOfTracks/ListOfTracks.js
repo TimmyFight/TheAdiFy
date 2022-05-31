@@ -8,14 +8,12 @@ const ListOfTracksStyled = styled.div`
 
 function ListOfTracks(props) {
   const { listOfTracks } = props;
-  listOfTracks.forEach((track, index) => {
-    console.log("Track index " + index + " track name: " + track.name);
-  });
 
   return (
     <ListOfTracksStyled>
-      <Track />
-      <Track />
+      {listOfTracks.map((track) => (
+        <Track trackInfo={track} key={track.id} />
+      ))}
     </ListOfTracksStyled>
   );
 }

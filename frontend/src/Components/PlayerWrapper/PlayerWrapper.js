@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import styled from "styled-components";
 import ListOfTracks from "./ListOfTracks/ListOfTracks";
 import AlbumTile from "./AlbumTile/AlbumTile";
 import SideControlNav from "../SideControlNav/SideControlNav";
+import Config from "../../config.json";
 
 const PlayerWrapperStyled = styled.div`
   width: 100%;
@@ -19,18 +19,23 @@ function PlayerWrapper() {
   const [listOfTracks, setListOfTracks] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      await axios("http://localhost:8888").then(
-        (res) => {
-          setListOfTracks(res.data.tracks);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    };
+    const endpoint = "https://api.spotify.com/v1/recommendations";
+    const artists = "6sFIWsNpZYqfjUpaCgueju";
+    const danceability = encodeURIComponent("0.9");
 
-    fetchData();
+    fetch(
+      `${endpoint}?seed_artists=${artists}&target_danceability=${danceability}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${Config.access_token}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then(({ tracks }) => {
+        setListOfTracks(tracks);
+      });
   }, []);
 
   return (
