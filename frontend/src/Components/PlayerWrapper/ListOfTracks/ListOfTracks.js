@@ -13,20 +13,25 @@ function ListOfTracks(props) {
   const [playingSong, setPlayingSong] = useState("");
 
   function playPauseMusic(event) {
-    if (!isPlaying) {
+    if (isPlaying && event.target.classList.contains("playing")) {
+      event.target.classList.remove("playing");
+      event.target.classList.add("stoped");
+      // playingSong.pause();
+      setIsPlaying(false);
+    } else if (!isPlaying) {
+      event.target.classList.add("playing");
+      event.target.classList.remove("stoped");
+      // playingSong.play();
+      setIsPlaying(true);
+    } else {
       document.querySelectorAll("button.playing").forEach((item) => {
         item.classList.remove("playing");
         item.classList.add("stoped");
       });
       event.target.classList.add("playing");
       event.target.classList.remove("stoped");
-      // playingSong.play();
-      setIsPlaying(true);
-    } else {
-      event.target.classList.remove("playing");
-      event.target.classList.add("stoped");
       // playingSong.pause();
-      setIsPlaying(false);
+      setIsPlaying(true);
     }
   }
 
