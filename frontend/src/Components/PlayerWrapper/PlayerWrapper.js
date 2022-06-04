@@ -32,9 +32,17 @@ function PlayerWrapper() {
         },
       }
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
       .then(({ tracks }) => {
         setListOfTracks(tracks);
+      })
+      .catch((err) => {
+        console.error("Error with token access server ", err);
       });
   }, []);
 

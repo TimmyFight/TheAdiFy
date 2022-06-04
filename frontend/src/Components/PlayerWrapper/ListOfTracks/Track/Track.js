@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ButtonPlayPause from "./ButtonPlayPause/ButtonPlayPause";
 
 const TrackStyled = styled.div`
   width: 50%;
@@ -15,9 +16,10 @@ function millisecondsToTime(props) {
 }
 
 function Track(props) {
-  const { trackInfo } = props;
+  const { trackInfo, playPauseMusic } = props;
   return (
     <TrackStyled>
+      <ButtonPlayPause playPauseMusic={playPauseMusic} />
       {trackInfo.name} {millisecondsToTime(props)}
     </TrackStyled>
   );
