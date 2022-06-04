@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import styles from "./ButtonPlayPause.css";
+import "./ButtonPlayPause.css";
 
 const ButtonPlayPauseStyled = styled.button`
   width: 50px;
