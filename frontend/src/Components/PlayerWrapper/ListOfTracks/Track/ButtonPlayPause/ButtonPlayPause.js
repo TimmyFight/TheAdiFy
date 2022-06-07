@@ -7,11 +7,12 @@ const ButtonPlayPauseStyled = styled.button`
 `;
 
 function ButtonPlayPause(props) {
-  const { playPauseMusic } = props;
+  const { playPauseMusic, trackUrl } = props;
   return (
     <ButtonPlayPauseStyled
       onClick={playPauseMusic.bind(this)}
       className={"stoped"}
+      data-trackurl={trackUrl}
     ></ButtonPlayPauseStyled>
   );
 }

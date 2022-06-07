@@ -10,18 +10,19 @@ const ListOfTracksStyled = styled.div`
 function ListOfTracks(props) {
   const { listOfTracks } = props;
   const [isPlaying, setIsPlaying] = useState(false);
-  const [playingSong, setPlayingSong] = useState("");
 
   function playPauseMusic(event) {
+    const trackurl = new Audio(event.target.dataset.trackurl);
+    trackurl.type = "audio/wav";
     if (isPlaying && event.target.classList.contains("playing")) {
       event.target.classList.remove("playing");
       event.target.classList.add("stoped");
-      // playingSong.pause();
+      trackurl.pause();
       setIsPlaying(false);
     } else if (!isPlaying) {
       event.target.classList.add("playing");
       event.target.classList.remove("stoped");
-      // playingSong.play();
+      trackurl.play();
       setIsPlaying(true);
     } else {
       document.querySelectorAll("button.playing").forEach((item) => {
@@ -30,7 +31,7 @@ function ListOfTracks(props) {
       });
       event.target.classList.add("playing");
       event.target.classList.remove("stoped");
-      // playingSong.pause();
+      trackurl.pause();
       setIsPlaying(true);
     }
   }

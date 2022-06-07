@@ -17,9 +17,13 @@ function millisecondsToTime(props) {
 
 function Track(props) {
   const { trackInfo, playPauseMusic } = props;
+  console.log({ trackInfo });
   return (
     <TrackStyled>
-      <ButtonPlayPause playPauseMusic={playPauseMusic} />
+      <ButtonPlayPause
+        playPauseMusic={playPauseMusic}
+        trackUrl={trackInfo.external_urls.spotify}
+      />
       {trackInfo.name} {millisecondsToTime(props)}
     </TrackStyled>
   );
