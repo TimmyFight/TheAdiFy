@@ -1,0 +1,9 @@
+.albumTile {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+}
+
+.albumImage {
+  height: 100px;
+}

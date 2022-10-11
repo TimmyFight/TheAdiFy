@@ -1,7 +1,7 @@
-import PlayerWrapper from "../../Components/PlayerWrapper/PlayerWrapper";
+import Discover from "../../Modules/Discover/Discover";
 
 function Home() {
-  return <PlayerWrapper />;
+  return <Discover />;
 }
 
 export default Home;
