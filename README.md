@@ -8,6 +8,8 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 
 ## Available Scripts
 
+The project is base on API from https://rapidapi.com/tipsters/api/shazam-core
+
 Create config.json in frontend folder with API keys and URI Redirect
 {
 "SHAZAM_CORE_API_KEY": "XXXXXXXXXXXXXXXXXX",
