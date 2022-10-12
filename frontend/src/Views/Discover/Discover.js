@@ -1,7 +1,13 @@
-import Discover from "../../Modules/Discover/Discover";
+import ListOfAlbums from "../../Modules/ListOfAlbums/ListOfAlbums";
+import TitleH2 from "../../Atoms/TitleH2/TitleH2";
 
-function Home() {
-  return <Discover />;
+function Discover() {
+  return (
+    <>
+      <TitleH2>Discover</TitleH2>
+      <ListOfAlbums />
+    </>
+  );
 }
 
-export default Home;
+export default Discover;
