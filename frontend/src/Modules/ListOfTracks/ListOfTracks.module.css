@@ -1,6 +1,7 @@
 .tracksGrip {
   display: flex;
   flex-wrap: wrap;
-  gap: 1%;
+  gap: 4%;
+  row-gap: 30px;
   margin-top: 20px;
 }
