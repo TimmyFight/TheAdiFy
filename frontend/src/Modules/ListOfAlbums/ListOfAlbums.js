@@ -1,7 +1,11 @@
 import styles from "./ListOfAlbums.module.css";
 import AlbumTile from "../../Atoms/AlbumTile/AlbumTile";
 
+import { useGetTopChartsQuery } from "../../redux/services/shazamCoreApi";
+
 const ListOfAlbums = () => {
+  const { data, isFetching, error } = useGetTopChartsQuery();
+  console.log(data);
   return (
     <section className={styles.albumsGrip}>
       <AlbumTile
