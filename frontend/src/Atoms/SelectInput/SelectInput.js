@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./SelectInput.module.css";
 
 const SelectInput = ({ options }) => {
@@ -12,6 +13,14 @@ const SelectInput = ({ options }) => {
       })}
     </select>
   );
+};
+
+SelectInput.propTypes = {
+  options: PropTypes.object,
+};
+
+SelectInput.defaultProps = {
+  options: {},
 };
 
 export default SelectInput;
