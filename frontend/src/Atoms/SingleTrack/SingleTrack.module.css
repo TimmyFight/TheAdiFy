@@ -1,5 +1,5 @@
 .singleTrack {
-  width: 24%;
+  width: 22%;
   text-align: center;
 }
 
@@ -10,5 +10,5 @@
 }
 
 .albumImage {
-  height: 100px;
+  width: 100%;
 }
