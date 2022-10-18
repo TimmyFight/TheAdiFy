@@ -1,10 +1,10 @@
-import styles from "./AlbumTile.module.css";
+import styles from "./SingleTrack.module.css";
 import TitleH3 from "../TitleH3/TitleH3";
 import Description from "../Description/Description";
 
-const AlbumTile = ({ title, description, image }) => {
+const SingleTrack = ({ title, description, image }) => {
   return (
-    <div className={styles.albumTile}>
+    <div className={styles.singleTrack}>
       <img className={styles.albumImage} src={image} alt={title} />
       <TitleH3>{title}</TitleH3>
       <Description>{description}</Description>
@@ -12,4 +12,4 @@ const AlbumTile = ({ title, description, image }) => {
   );
 };
 
-export default AlbumTile;
+export default SingleTrack;
