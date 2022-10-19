@@ -12,6 +12,7 @@ const Image = ({ alt, src, type }) => {
         [styles.standard]: type === "standard",
         [styles.fullImage]: type === "fullImage",
         [styles.icon]: type === "icon",
+        [styles.albumImage]: type === "albumImage",
       })}
     />
   );

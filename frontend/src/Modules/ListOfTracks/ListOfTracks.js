@@ -1,5 +1,5 @@
 import styles from "./ListOfTracks.module.css";
-import SingleTrack from "../../Atoms/SingleTrack/SingleTrack";
+import SingleTrack from "../../Molecules/SingleTrack/SingleTrack";
 import Loader from "../../Atoms/Loader/Loader";
 import Error from "../../Atoms/Error/Error";
 
@@ -12,14 +12,7 @@ const ListOfTracks = () => {
   return (
     <section className={styles.tracksGrip}>
       {data?.map((track) => {
-        return (
-          <SingleTrack
-            title={track.title}
-            description={track.subtitle}
-            image={track.images.background}
-            key={track.key}
-          />
-        );
+        return <SingleTrack track={track} key={track.key} />;
       })}
     </section>
   );
