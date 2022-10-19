@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { UseDispatch } from "react-redux";
 import { playPause, setActiveSongs } from "../../redux/features/pleyerSlice";
+import { loader } from "../../assets";
 import styles from "./SingleTrack.module.css";
 import TitleH3 from "../../Atoms/TitleH3/TitleH3";
 import Description from "../../Atoms/Description/Description";
@@ -27,7 +28,7 @@ const SingleTrack = ({ track, isPlaying, activeSong, data }) => {
           isPlaying={isPlaying}
           activeSong={activeSong}
         />
-        <Image src={image} alt={title} />
+        <Image src={image ? image : loader} alt={title} />
       </section>
       <Link to={`/track/${track?.key}`}>
         <TitleH3>{title}</TitleH3>
