@@ -1,6 +1,5 @@
 .hover:hover {
   opacity: 0.55;
-  text-align: center;
 }
 
 .playPauseIcon {
@@ -14,6 +13,12 @@
   opacity: 0;
   background-color: #818281;
   border-radius: 10px;
+}
+
+.isPlaying {
+  background-color: #818281;
+  border-radius: 10px;
+  opacity: 0.55;
 }
 
 .playPause {

@@ -6,7 +6,7 @@ import styles from "./PlayPause.module.css";
 const PlayPause = ({
   isPlaying,
   activeSong,
-  track,
+  song,
   handlePause,
   handlePlay,
 }) => {
@@ -14,10 +14,11 @@ const PlayPause = ({
     <section
       className={classnames({
         [styles.playPause]: true,
-        [styles.hover]: !(isPlaying && activeSong?.title === track?.title),
+        [styles.hover]: !(isPlaying && activeSong?.title === song?.title),
+        [styles.isPlaying]: isPlaying && activeSong?.title === song?.title,
       })}
     >
-      {isPlaying && activeSong?.title === track?.title ? (
+      {isPlaying && activeSong?.title === song?.title ? (
         <FaPauseCircle
           className={styles.playPauseIcon}
           size={35}

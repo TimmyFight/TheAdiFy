@@ -1,12 +1,13 @@
-// import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
 import SideBar from "./Modules/SideBar/SideBar";
 import NavBar from "./Modules/NavBar/NavBar";
+import MusicPlayer from "./Modules/MusicPlayer/MusicPlayer";
 
 function App() {
-  // const { activeSong } = useSelector((state) => state.player);
+  const { activeSong } = useSelector((state) => state.player);
 
   return (
     <>
@@ -20,6 +21,11 @@ function App() {
             <Route path="/" element={<Discover />} />
           </Routes>
         </section>
+        {activeSong?.title && (
+          <section>
+            <MusicPlayer />
+          </section>
+        )}
       </section>
     </>
   );
