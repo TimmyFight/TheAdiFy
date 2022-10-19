@@ -16,11 +16,11 @@ const SelectInput = ({ options }) => {
 };
 
 SelectInput.propTypes = {
-  options: PropTypes.object,
+  options: PropTypes.array,
 };
 
 SelectInput.defaultProps = {
-  options: {},
+  options: [],
 };
 
 export default SelectInput;

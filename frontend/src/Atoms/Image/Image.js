@@ -19,8 +19,8 @@ const Image = ({ alt, src, type }) => {
 };
 
 Image.propTypes = {
-  alt: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  src: PropTypes.string,
   type: PropTypes.string,
 };
 
