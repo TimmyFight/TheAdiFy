@@ -1,4 +1,3 @@
-import React from "react";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import {
   BsArrowRepeat,
@@ -6,6 +5,7 @@ import {
   BsFillPlayFill,
   BsShuffle,
 } from "react-icons/bs";
+import styles from "./Controls.module.css";
 
 const Controls = ({
   isPlaying,
@@ -18,7 +18,7 @@ const Controls = ({
   handlePrevSong,
   handleNextSong,
 }) => (
-  <section>
+  <section className={styles.constrolsContainer}>
     <BsArrowRepeat
       size={20}
       color={repeat ? "red" : "white"}

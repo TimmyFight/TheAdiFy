@@ -1,12 +1,12 @@
-import React from "react";
 import {
   BsFillVolumeUpFill,
   BsVolumeDownFill,
   BsFillVolumeMuteFill,
 } from "react-icons/bs";
+import styles from "./VolumeBar.module.css";
 
 const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
-  <section>
+  <section className={styles.volumeBar}>
     {value <= 1 && value > 0.5 && (
       <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />
     )}

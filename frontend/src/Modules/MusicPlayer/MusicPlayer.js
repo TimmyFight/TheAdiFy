@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -61,12 +61,8 @@ const MusicPlayer = () => {
 
   return (
     <section className={styles.musicPlayer}>
-      <Track
-        isPlaying={isPlaying}
-        isActive={isActive}
-        activeSong={activeSong}
-      />
-      <div>
+      <Track activeSong={activeSong} />
+      <section>
         <Controls
           isPlaying={isPlaying}
           isActive={isActive}
@@ -98,7 +94,7 @@ const MusicPlayer = () => {
           onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
           onLoadedData={(event) => setDuration(event.target.duration)}
         />
-      </div>
+      </section>
       <VolumeBar
         value={volume}
         min="0"

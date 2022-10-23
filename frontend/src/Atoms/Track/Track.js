@@ -1,16 +1,26 @@
-import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Track.module.css";
+import Description from "../Description/Description";
 import Image from "../Image/Image";
 
-const Track = ({ isPlaying, isActive, activeSong }) => (
-  <section>
-    <div className={`${isPlaying && isActive ? "animate" : ""} hidden`}>
-      <Image src={activeSong?.images?.coverart} alt="cover art" type="icon" />
+const Track = ({ activeSong }) => (
+  <section className={styles.trackContainer}>
+    <div>
+      <Image src={activeSong?.images?.coverart} alt="Cover art" type="icon" />
     </div>
     <div>
-      <p>{activeSong?.title ? activeSong?.title : "No active Song"}</p>
-      <p>{activeSong?.subtitle ? activeSong?.subtitle : "No active Song"}</p>
+      <Description>
+        {activeSong?.title ? activeSong?.title : "No active Song"}
+      </Description>
+      <Description>
+        {activeSong?.subtitle ? activeSong?.subtitle : "No active Song"}
+      </Description>
     </div>
   </section>
 );
+
+Track.propTypes = {
+  activeSong: PropTypes.object,
+};
 
 export default Track;

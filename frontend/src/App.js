@@ -21,11 +21,7 @@ function App() {
             <Route path="/" element={<Discover />} />
           </Routes>
         </section>
-        {activeSong?.title && (
-          <section>
-            <MusicPlayer />
-          </section>
-        )}
+        {activeSong?.title && <MusicPlayer />}
       </section>
     </>
   );

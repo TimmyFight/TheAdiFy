@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./Seekbar.module.css";
 
 const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
   // converts the time to format 0:00
@@ -6,7 +6,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
     `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(-2)}`;
 
   return (
-    <section>
+    <section className={styles.seekBarContainer}>
       <button type="button" onClick={() => setSeekTime(appTime - 5)}>
         -
       </button>
@@ -19,7 +19,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         max={max}
         onInput={onInput}
       />
-      <p className="text-white">{max === 0 ? "0:00" : getTime(max)}</p>
+      <p>{max === 0 ? "0:00" : getTime(max)}</p>
       <button type="button" onClick={() => setSeekTime(appTime + 5)}>
         +
       </button>
