@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
+import classnames from "classnames";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
 import SideBar from "./Modules/SideBar/SideBar";
@@ -12,7 +13,12 @@ function App() {
   return (
     <>
       <NavBar />
-      <section className={styles.body}>
+      <section
+        className={classnames({
+          [styles.body]: true,
+          [styles.musicBarOn]: activeSong?.title,
+        })}
+      >
         <section className={styles.sideBar}>
           <SideBar />
         </section>
