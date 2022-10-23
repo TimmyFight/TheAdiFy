@@ -9,7 +9,7 @@ const Track = ({ activeSong }) => (
       <Image src={activeSong?.images?.coverart} alt="Cover art" type="icon" />
     </div>
     <div>
-      <Description>
+      <Description fontWeight="bold">
         {activeSong?.title ? activeSong?.title : "No active Song"}
       </Description>
       <Description>
