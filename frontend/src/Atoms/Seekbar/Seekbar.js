@@ -1,4 +1,5 @@
 import styles from "./Seekbar.module.css";
+import Description from "../Description/Description";
 
 const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
   // converts the time to format 0:00
@@ -10,7 +11,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
       <button type="button" onClick={() => setSeekTime(appTime - 5)}>
         -
       </button>
-      <p>{value === 0 ? "0:00" : getTime(value)}</p>
+      <Description>{value === 0 ? "0:00" : getTime(value)}</Description>
       <input
         type="range"
         step="any"
@@ -19,7 +20,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         max={max}
         onInput={onInput}
       />
-      <p>{max === 0 ? "0:00" : getTime(max)}</p>
+      <Description>{max === 0 ? "0:00" : getTime(max)}</Description>
       <button type="button" onClick={() => setSeekTime(appTime + 5)}>
         +
       </button>
