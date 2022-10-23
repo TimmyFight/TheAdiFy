@@ -1,9 +1,10 @@
 import React from "react";
+import Image from "../Image/Image";
 
 const Track = ({ isPlaying, isActive, activeSong }) => (
   <section>
     <div className={`${isPlaying && isActive ? "animate" : ""} hidden`}>
-      <img src={activeSong?.images?.coverart} alt="cover art" />
+      <Image src={activeSong?.images?.coverart} alt="cover art" type="icon" />
     </div>
     <div>
       <p>{activeSong?.title ? activeSong?.title : "No active Song"}</p>

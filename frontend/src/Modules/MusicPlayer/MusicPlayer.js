@@ -6,11 +6,12 @@ import {
   prevSong,
   playPause,
 } from "../../redux/features/playerSlice";
-import Controls from "./Controls";
-import Player from "./Player";
-import Seekbar from "./Seekbar";
-import Track from "./Track";
-import VolumeBar from "./VolumeBar";
+import styles from "./MusicPlayer.module.css";
+import Controls from "../../Atoms/Controls/Controls";
+import Player from "../../Atoms/Player/Player";
+import Seekbar from "../../Atoms/Seekbar/Seekbar";
+import Track from "../../Atoms/Track/Track";
+import VolumeBar from "../../Atoms/VolumeBar/VolumeBar";
 
 const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
@@ -59,7 +60,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <section>
+    <section className={styles.musicPlayer}>
       <Track
         isPlaying={isPlaying}
         isActive={isActive}
