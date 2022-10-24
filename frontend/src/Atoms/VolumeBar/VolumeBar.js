@@ -4,6 +4,7 @@ import {
   BsFillVolumeMuteFill,
 } from "react-icons/bs";
 import styles from "./VolumeBar.module.css";
+import Input from "../Input/Input";
 
 const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
   <section className={styles.volumeBar}>
@@ -20,13 +21,13 @@ const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
         onClick={() => setVolume(1)}
       />
     )}
-    <input
+    <Input
       type="range"
       step="any"
       value={value}
       min={min}
       max={max}
-      onChange={onChange}
+      onChangeHandler={onChange}
     />
   </section>
 );

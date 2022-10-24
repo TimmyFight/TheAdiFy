@@ -77,7 +77,7 @@ const MusicPlayer = () => {
         />
         <Seekbar
           value={appTime}
-          min="0"
+          min={0}
           max={duration}
           onInput={(event) => setSeekTime(event.target.value)}
           setSeekTime={setSeekTime}
@@ -97,8 +97,8 @@ const MusicPlayer = () => {
       </section>
       <VolumeBar
         value={volume}
-        min="0"
-        max="1"
+        min={0}
+        max={1}
         onChange={(event) => setVolume(event.target.value)}
         setVolume={setVolume}
       />
