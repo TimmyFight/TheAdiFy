@@ -19,9 +19,7 @@ function App() {
           [styles.musicBarOn]: activeSong?.title,
         })}
       >
-        <section className={styles.sideBar}>
-          <SideBar />
-        </section>
+        <SideBar />
         <section className={styles.mainContainer}>
           <Routes>
             <Route path="/" element={<Discover />} />
