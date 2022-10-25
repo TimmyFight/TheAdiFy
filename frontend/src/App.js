@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import classnames from "classnames";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
-import SideBar from "./Modules/SideBar/SideBar";
 import NavBar from "./Modules/NavBar/NavBar";
 import MusicPlayer from "./Modules/MusicPlayer/MusicPlayer";
 
@@ -19,7 +18,6 @@ function App() {
           [styles.musicBarOn]: activeSong?.title,
         })}
       >
-        <SideBar />
         <section className={styles.mainContainer}>
           <Routes>
             <Route path="/" element={<Discover />} />

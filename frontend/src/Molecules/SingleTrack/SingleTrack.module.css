@@ -3,6 +3,12 @@
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .singleTrack {
+    width: 30%;
+  }
+}
+
 .imageContainer {
   position: relative;
 }

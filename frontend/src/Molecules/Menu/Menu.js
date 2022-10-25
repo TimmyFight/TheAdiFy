@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { links } from "../../assets/constants";
-import styles from "./SideBar.module.css";
+import styles from "./Menu.module.css";
 
-const SideBar = () => {
+const Menu = () => {
   return (
-    <section className={styles.sideBar}>
-      <nav className={styles.sideNav}>
+    <section className={styles.Menu}>
+      <nav className={styles.navMenu}>
         {links.map((element) => (
           <NavLink key={element.name} to={element.to}>
             <element.icon className={styles.sideNavIcon} />
@@ -17,4 +17,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default Menu;
