@@ -4,6 +4,7 @@ import classnames from "classnames";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
 import NavBar from "./Modules/NavBar/NavBar";
+import TopPlay from "./Modules/TopPlay/TopPlay";
 import MusicPlayer from "./Modules/MusicPlayer/MusicPlayer";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Discover />} />
           </Routes>
         </section>
+        <TopPlay />
         {activeSong?.title && <MusicPlayer />}
       </section>
     </>
