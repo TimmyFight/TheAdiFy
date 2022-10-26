@@ -9,6 +9,7 @@ const Image = ({ alt, src, type }) => {
       alt={alt}
       className={classnames({
         [styles.image]: true,
+        [styles.pure]: type === "pure",
         [styles.standard]: type === "standard",
         [styles.fullImage]: type === "fullImage",
         [styles.icon]: type === "icon",

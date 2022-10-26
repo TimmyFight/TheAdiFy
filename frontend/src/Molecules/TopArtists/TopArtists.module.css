@@ -3,3 +3,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.swipper {
+  overflow: hidden;
+}
+
+.swiperSlide {
+  float: left;
+  display: inline;
+}
