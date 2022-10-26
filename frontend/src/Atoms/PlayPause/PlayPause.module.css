@@ -1,21 +1,26 @@
-.hover:hover {
+.playPause.hover:hover {
   opacity: 0.55;
 }
 
-.playPauseIcon {
+.playPause .playPauseIcon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.hover {
+.playPauseButton .playPauseIcon {
+  width: 25px;
+  cursor: pointer;
+}
+
+.playPause.hover {
   opacity: 0;
   background-color: #818281;
   border-radius: 10px;
 }
 
-.isPlaying {
+.playPause.isPlaying {
   background-color: #818281;
   border-radius: 10px;
   opacity: 0.55;

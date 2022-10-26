@@ -4,6 +4,7 @@ import { FaPauseCircle, FaPlayCircle } from "react-icons/fa";
 import styles from "./PlayPause.module.css";
 
 const PlayPause = ({
+  type,
   isPlaying,
   activeSong,
   song,
@@ -13,7 +14,8 @@ const PlayPause = ({
   return (
     <section
       className={classnames({
-        [styles.playPause]: true,
+        [styles.playPause]: type === "background",
+        [styles.playPauseButton]: type === "button",
         [styles.hover]: !(isPlaying && activeSong?.title === song?.title),
         [styles.isPlaying]: isPlaying && activeSong?.title === song?.title,
       })}
@@ -36,10 +38,12 @@ const PlayPause = ({
 };
 
 PlayPause.propTypes = {
+  type: PropTypes.string,
   hover: PropTypes.bool,
 };
 
 PlayPause.defaultProps = {
+  type: "background",
   hover: false,
 };
 
