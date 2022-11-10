@@ -23,7 +23,7 @@ function App() {
         <section className={styles.mainContainer}>
           <Routes>
             <Route path="/" element={<Discover />} />
-            <Route path="/song/:id" element={<SongDetails />} />
+            <Route path="/song/:songid" element={<SongDetails />} />
           </Routes>
         </section>
         <TopPlay />
