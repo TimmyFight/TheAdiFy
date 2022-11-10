@@ -1,11 +1,22 @@
 import PropTypes from "prop-types";
+import classnames from "classnames";
+import styles from "./TitleH3.module.css";
 
-const TitleH3 = ({ children }) => {
-  return <h3>{children}</h3>;
+const TitleH3 = ({ children, margin }) => {
+  return (
+    <h3
+      className={classnames({
+        [styles.marginNone]: margin === "none",
+      })}
+    >
+      {children}
+    </h3>
+  );
 };
 
 TitleH3.prototypes = {
   children: PropTypes.string.isRequired,
+  margin: PropTypes.string,
 };
 
 export default TitleH3;
