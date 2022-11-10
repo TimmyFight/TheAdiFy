@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import classnames from "classnames";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
+import SongDetails from "./Views/SongDetails/SongDetails";
 import NavBar from "./Modules/NavBar/NavBar";
 import TopPlay from "./Modules/TopPlay/TopPlay";
 import MusicPlayer from "./Modules/MusicPlayer/MusicPlayer";
@@ -22,6 +23,7 @@ function App() {
         <section className={styles.mainContainer}>
           <Routes>
             <Route path="/" element={<Discover />} />
+            <Route path="/song/:id" element={<SongDetails />} />
           </Routes>
         </section>
         <TopPlay />

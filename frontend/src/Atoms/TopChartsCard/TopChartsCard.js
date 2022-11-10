@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { playPause, setActiveSong } from "../../redux/features/playerSlice";
 import styles from "./TopChartsCard.module.css";
@@ -21,7 +22,9 @@ const TopChartsCard = ({ song, data, i, isPlaying, activeSong }) => {
     <div className={styles.card}>
       <TitleH3>{i}.</TitleH3>
       <Image alt={song.title} src={song.images?.coverart} type="icon" />
-      <TitleH3>{song.title}</TitleH3>
+      <TitleH3>
+        <Link to={`/song/${song?.key}`}>{song.title}</Link>
+      </TitleH3>
       <PlayPause
         type="button"
         song={song}
