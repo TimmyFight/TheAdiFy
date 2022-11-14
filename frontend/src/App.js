@@ -4,6 +4,7 @@ import classnames from "classnames";
 import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
 import SongDetails from "./Views/SongDetails/SongDetails";
+import ArtistDetails from "./Views/ArtistDetails/ArtistDetails";
 import NavBar from "./Modules/NavBar/NavBar";
 import TopPlay from "./Modules/TopPlay/TopPlay";
 import MusicPlayer from "./Modules/MusicPlayer/MusicPlayer";
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Discover />} />
             <Route path="/song/:songid" element={<SongDetails />} />
+            <Route path="/artist/:artistid" element={<ArtistDetails />} />
           </Routes>
         </section>
         <TopPlay />

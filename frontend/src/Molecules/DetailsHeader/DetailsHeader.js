@@ -6,7 +6,9 @@ import Description from "../../Atoms/Description/Description";
 import Image from "../../Atoms/Image/Image";
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
-  const artist = artistData?.artist[artistId].attributes;
+  console.log("artistId", artistId);
+  console.log("artistData", artistData);
+  const artist = artistData?.artists[artistId].attributes;
   return (
     <section className={styles.detailsHeader}>
       <div>
