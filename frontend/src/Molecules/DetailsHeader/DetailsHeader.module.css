@@ -8,3 +8,7 @@
 .detailsInfo > * {
   margin: 0;
 }
+
+.detailsImage {
+  width: 150px;
+}

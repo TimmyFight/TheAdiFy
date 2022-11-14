@@ -6,14 +6,13 @@ import Description from "../../Atoms/Description/Description";
 import Image from "../../Atoms/Image/Image";
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
-  console.log("artistId", artistId);
   console.log("artistData", artistData);
   const artist = artistData?.artists[artistId].attributes;
   return (
     <section className={styles.detailsHeader}>
-      <div>
+      <div className={styles.detailsImage}>
         <Image
-          type="icon"
+          type="pure"
           src={artistId ? artist.artwork?.url : songData?.images?.coverart}
           alt={"alt"}
         />
@@ -21,7 +20,7 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
       <div className={styles.detailsInfo}>
         <TitleH2>{artistId ? artist.name : songData?.title}</TitleH2>
         {!artistId && (
-          <Link to={`/artists/${songData?.artists[0].adamid}`}>
+          <Link to={`/artist/${songData?.artists[0].adamid}`}>
             <TitleH3 margin="none">{songData?.subtitle}</TitleH3>
           </Link>
         )}
