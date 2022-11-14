@@ -7,7 +7,7 @@ import TitleH3 from "../TitleH3/TitleH3";
 import Image from "../Image/Image";
 import PlayPause from "../PlayPause/PlayPause";
 
-const TopChartsCard = ({ song, data, i, isPlaying, activeSong }) => {
+const TopChartsCard = ({ artistId, song, data, i, isPlaying, activeSong }) => {
   const dispatch = useDispatch();
 
   const handlePauseClick = () => {
@@ -21,18 +21,28 @@ const TopChartsCard = ({ song, data, i, isPlaying, activeSong }) => {
   return (
     <div className={styles.card}>
       <TitleH3>{i}.</TitleH3>
-      <Image alt={song.title} src={song.images?.coverart} type="icon" />
-      <TitleH3>
-        <Link to={`/song/${song?.key}`}>{song.title}</Link>
-      </TitleH3>
-      <PlayPause
-        type="button"
-        song={song}
-        handlePause={handlePauseClick}
-        handlePlay={handlePlayClick}
-        isPlaying={isPlaying}
-        activeSong={activeSong}
+      <Image
+        alt={artistId ? song.attributes?.name : song.title}
+        src={artistId ? song.attributes?.artwork?.url : song.images?.coverart}
+        type="icon"
       />
+      <TitleH3>
+        {artistId ? (
+          song.attributes?.name
+        ) : (
+          <Link to={`/song/${song?.key}`}>{song.title}</Link>
+        )}
+      </TitleH3>
+      {!artistId && (
+        <PlayPause
+          type="button"
+          song={song}
+          handlePause={handlePauseClick}
+          handlePlay={handlePlayClick}
+          isPlaying={isPlaying}
+          activeSong={activeSong}
+        />
+      )}
     </div>
   );
 };

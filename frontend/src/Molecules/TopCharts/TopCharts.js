@@ -22,7 +22,7 @@ const TopCharts = () => {
           <TopChartsCard
             song={song}
             data={data}
-            i={i}
+            i={i + 1}
             key={song.key}
             isPlaying={isPlaying}
             activeSong={activeSong}

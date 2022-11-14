@@ -4,11 +4,15 @@ import TopChartsCard from "../../Atoms/TopChartsCard/TopChartsCard";
 import TitleH3 from "../../Atoms/TitleH3/TitleH3";
 import styles from "./RelatedSongs.module.css";
 
-const RelatedSongs = ({ songid }) => {
+const RelatedSongs = ({ songid, artistSongs, artistId }) => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data } = useGetRelatedSongsQuery({ songid });
+  let { data } = useGetRelatedSongsQuery({ songid });
+  let songs = data?.slice(0, 5);
 
-  const songs = data?.slice(0, 5);
+  if (artistId) {
+    songs = artistSongs;
+    data = artistSongs;
+  }
 
   return (
     <section className={styles.topCharts}>
@@ -18,10 +22,11 @@ const RelatedSongs = ({ songid }) => {
       <section className={styles.topChartsSongs}>
         {songs?.map((song, i) => (
           <TopChartsCard
+            artistId={artistId}
             song={song}
             data={data}
-            i={i}
-            key={song.key}
+            i={i + 1}
+            key={artistId ? song.id : song.key}
             isPlaying={isPlaying}
             activeSong={activeSong}
           />
