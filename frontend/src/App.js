@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import Discover from "./Views/Discover/Discover";
 import SongDetails from "./Views/SongDetails/SongDetails";
 import AroundYou from "./Views/AroundYou/AroundYou";
+import TopCharts from "./Views/TopCharts/TopCharts";
 import ArtistDetails from "./Views/ArtistDetails/ArtistDetails";
 import NavBar from "./Modules/NavBar/NavBar";
 import TopPlay from "./Modules/TopPlay/TopPlay";
@@ -28,6 +29,7 @@ function App() {
             <Route path="/song/:songid" element={<SongDetails />} />
             <Route path="/artist/:artistid" element={<ArtistDetails />} />
             <Route path="/around-you" element={<AroundYou />} />
+            <Route path="/top-charts" element={<TopCharts />} />
           </Routes>
         </section>
         <TopPlay />
