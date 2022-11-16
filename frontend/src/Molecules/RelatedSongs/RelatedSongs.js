@@ -1,5 +1,6 @@
 import { useGetRelatedSongsQuery } from "../../redux/services/shazamCoreApi";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import TopChartsCard from "../../Atoms/TopChartsCard/TopChartsCard";
 import TitleH3 from "../../Atoms/TitleH3/TitleH3";
 import styles from "./RelatedSongs.module.css";
@@ -34,6 +35,16 @@ const RelatedSongs = ({ songid, artistSongs, artistId }) => {
       </section>
     </section>
   );
+};
+
+RelatedSongs.propTypes = {
+  songid: PropTypes.string,
+  artistId: PropTypes.string,
+  artistSongs: PropTypes.array,
+};
+
+RelatedSongs.defaultProps = {
+  songid: "632531170",
 };
 
 export default RelatedSongs;

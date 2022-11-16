@@ -5,8 +5,11 @@ const TitleH1 = ({ children }) => {
   return <h1 className={styles.titleH1}>{children}</h1>;
 };
 
-TitleH1.prototypes = {
-  children: PropTypes.string.isRequired,
+TitleH1.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.object.isRequired,
+  ]),
 };
 
 export default TitleH1;

@@ -13,7 +13,7 @@ const Error = ({ message }) => {
   );
 };
 
-Error.prototypes = {
+Error.propTypes = {
   message: PropTypes.object.isRequired,
 };
 

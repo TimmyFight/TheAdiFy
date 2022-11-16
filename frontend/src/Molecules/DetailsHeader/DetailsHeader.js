@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import styles from "./DetailsHeader.module.css";
 import TitleH2 from "../../Atoms/TitleH2/TitleH2";
 import TitleH3 from "../../Atoms/TitleH3/TitleH3";
@@ -29,6 +30,12 @@ const DetailsHeader = ({ artistId, artistData, songData }) => {
       </div>
     </section>
   );
+};
+
+DetailsHeader.propTypes = {
+  artistId: PropTypes.string,
+  artistData: PropTypes.object,
+  songData: PropTypes.object,
 };
 
 export default DetailsHeader;

@@ -10,7 +10,7 @@ import Error from "../../Atoms/Error/Error";
 import { useGetSongsByCountryQuery } from "../../redux/services/shazamCoreApi";
 
 const AroundYou = () => {
-  const [countryId, setCountryId] = useState("");
+  const [countryId, setCountryId] = useState("US");
   const [country, setCountry] = useState("");
   const [loading, setLoading] = useState(true);
   const { activeSong, isPlaying } = useSelector((state) => state.player);

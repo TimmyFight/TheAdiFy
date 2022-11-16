@@ -14,8 +14,7 @@ const TitleH3 = ({ children, margin }) => {
   );
 };
 
-TitleH3.prototypes = {
-  children: PropTypes.string.isRequired,
+TitleH3.propTypes = {
   margin: PropTypes.string,
 };
 
