@@ -4,11 +4,11 @@ import SingleTrack from "../../Molecules/SingleTrack/SingleTrack";
 import Loader from "../../Atoms/Loader/Loader";
 import Error from "../../Atoms/Error/Error";
 
-import { useGetTopChartsQuery } from "../../redux/services/shazamCoreApi";
+import { useGetTopChartsGenreQuery } from "../../redux/services/shazamCoreApi";
 
 const ListOfTracks = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetTopChartsQuery();
+  const { data, isFetching, error } = useGetTopChartsGenreQuery("ROCK");
   if (isFetching) return <Loader message="Wait, loading is in progress." />;
   if (error) return <Error message={error} />;
   return (
