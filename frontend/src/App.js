@@ -6,6 +6,7 @@ import Discover from "./Views/Discover/Discover";
 import SongDetails from "./Views/SongDetails/SongDetails";
 import AroundYou from "./Views/AroundYou/AroundYou";
 import TopCharts from "./Views/TopCharts/TopCharts";
+import TopArtists from "./Views/TopArtists/TopArtists";
 import ArtistDetails from "./Views/ArtistDetails/ArtistDetails";
 import NavBar from "./Modules/NavBar/NavBar";
 import TopPlay from "./Modules/TopPlay/TopPlay";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/artist/:artistid" element={<ArtistDetails />} />
             <Route path="/around-you" element={<AroundYou />} />
             <Route path="/top-charts" element={<TopCharts />} />
+            <Route path="/top-artists" element={<TopArtists />} />
           </Routes>
         </section>
         <TopPlay />

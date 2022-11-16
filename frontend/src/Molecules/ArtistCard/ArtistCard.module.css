@@ -1,0 +1,15 @@
+.artistCard {
+  width: 16%;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .artistCard {
+    width: 30%;
+  }
+}
+
+.imageContainer {
+  position: relative;
+}
