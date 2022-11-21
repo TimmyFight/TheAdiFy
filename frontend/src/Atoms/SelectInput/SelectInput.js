@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import styles from "./SelectInput.module.css";
 
-const SelectInput = ({ options }) => {
+const SelectInput = ({ options, value, onChangeHandler }) => {
   return (
-    <select className={styles.selectInput}>
+    <select
+      className={styles.selectInput}
+      onChange={onChangeHandler}
+      value={value}
+    >
       {options.map((option) => {
         return (
           <option value={option.value} key={option.value}>
@@ -17,10 +21,13 @@ const SelectInput = ({ options }) => {
 
 SelectInput.propTypes = {
   options: PropTypes.array,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 SelectInput.defaultProps = {
   options: [],
+  value: "POP",
 };
 
 export default SelectInput;

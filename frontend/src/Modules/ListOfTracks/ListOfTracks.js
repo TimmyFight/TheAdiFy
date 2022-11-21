@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import styles from "./ListOfTracks.module.css";
 import SingleTrack from "../../Molecules/SingleTrack/SingleTrack";
@@ -6,9 +7,9 @@ import Error from "../../Atoms/Error/Error";
 
 import { useGetTopChartsGenreQuery } from "../../redux/services/shazamCoreApi";
 
-const ListOfTracks = () => {
+const ListOfTracks = ({ genreListId }) => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetTopChartsGenreQuery("ROCK");
+  const { data, isFetching, error } = useGetTopChartsGenreQuery(genreListId);
   if (isFetching) return <Loader message="Wait, loading is in progress." />;
   if (error) return <Error message={error} />;
   return (
@@ -27,6 +28,14 @@ const ListOfTracks = () => {
       })}
     </section>
   );
+};
+
+ListOfTracks.propTypes = {
+  genreListId: PropTypes.string,
+};
+
+ListOfTracks.defaultProps = {
+  genreListId: "POP",
 };
 
 export default ListOfTracks;
