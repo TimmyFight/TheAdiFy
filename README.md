@@ -17,3 +17,5 @@ REACT_APP_SHAZAM_CORE_API_HOST= "shazam-core.p.rapidapi.com"
 In the project directory, you can run:
 To start servers:
 Frontend - Go to folder 'cd frontend 'and run 'npm start' Port: 3000
+
+The app has been deployed to: https://timmyfight.github.io/TheAdiFy/
