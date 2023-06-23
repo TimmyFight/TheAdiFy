@@ -18,4 +18,4 @@ In the project directory, you can run:
 To start servers:
 Frontend - Go to folder 'cd frontend 'and run 'npm start' Port: 3000
 
-The app has been deployed to: https://timmyfight.github.io/TheAdiFy/
+The app has been deployed to: [Netlify](https://theadify.netlify.app/).
