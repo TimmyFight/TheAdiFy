@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import DetailsHeader from "../../Molecules/DetailsHeader/DetailsHeader";
+import TitleH3 from "../../Atoms/TitleH3/TitleH3";
 import RelatedSongs from "../../Molecules/RelatedSongs/RelatedSongs";
 import Error from "../../Atoms/Error/Error";
 import Loader from "../../Atoms/Loader/Loader";
@@ -20,9 +20,13 @@ const ArtistDetails = () => {
 
   return (
     <>
-      <DetailsHeader artistId={artistid} artistData={artistData} />
+      <TitleH3>
+        {artistData?.["data"]?.["0"]?.attributes?.name} - Top Songs
+      </TitleH3>
       <RelatedSongs
-        artistSongs={Object.values(artistData?.songs)}
+        artistSongs={Object.values(
+          artistData?.["data"]?.["0"]?.["views"]?.["top-songs"]?.["data"]
+        )}
         artistId={artistid}
       />
     </>
