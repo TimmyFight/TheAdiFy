@@ -1,57 +1,45 @@
-name: gh-pages
+name: GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: n1hility/cancel-previous-runs@v2
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@main
+          node-version: '16'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
-          persist-credentials: false
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: build gh-pages
-        run: |
-          npm i --legacy-peer-deps
-          cd ../../
-          npm run build --workspaces
-          sh deploy-gh-pages.sh
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npm run build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
           REACT_APP_GEO_API_URL: ${{ secrets.REACT_APP_GEO_API_URL }}
           REACT_APP_ICON_URL: ${{ secrets.REACT_APP_ICON_URL }}
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: gh-pages # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
-          SINGLE_COMMIT: true
-      - name: Generate coverage report
-        env:
-          NODE_OPTIONS: '--max-old-space-size=8192'
-        run: |
-          npm run coverage
-      - uses: codecov/codecov-action@v3
-        with:
-          name: codecov-umbrella # optional
-          fail_ci_if_error: false # optional (default = false)
-          verbose: true # optional (default = false)
-  
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
