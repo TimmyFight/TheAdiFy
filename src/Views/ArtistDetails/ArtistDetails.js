@@ -22,7 +22,9 @@ const ArtistDetails = () => {
     <>
       <DetailsHeader artistId={artistid} artistData={artistData} />
       <RelatedSongs
-        artistSongs={Object.values(artistData?.views?.top-songs?.data)} // prettier-ignore
+        artistSongs={Object.values(
+          artistData?.["views"]?.["top-songs"]?.["data"]
+        )}
         artistId={artistid}
       />
     </>
