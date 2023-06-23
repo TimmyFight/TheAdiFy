@@ -17,12 +17,12 @@ const ArtistDetails = () => {
     return <Loader title="Searching artist details..." />;
 
   if (error) return <Error />;
-
+  console.log("artistData", artistData);
   return (
     <>
       <DetailsHeader artistId={artistid} artistData={artistData} />
       <RelatedSongs
-        artistSongs={artistData?.songs ?? Object.values(artistData?.songs)}
+        artistSongs={Object.values(artistData?.views?.top-songs?.data)} // prettier-ignore
         artistId={artistid}
       />
     </>
