@@ -16,8 +16,9 @@ const ArtistDetails = () => {
   if (isFetchingArtistDetails)
     return <Loader title="Searching artist details..." />;
 
-  if (error) return <Error />;
   console.log("artistData", artistData);
+  if (error) return <Error />;
+
   return (
     <>
       <DetailsHeader artistId={artistid} artistData={artistData} />
