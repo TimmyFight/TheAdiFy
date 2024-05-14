@@ -34,7 +34,7 @@ const TopArtists = () => {
               style={{ width: "16%", height: "auto" }}
               className={styles.swiperSlide}
             >
-              <Link to={`/artist/${song?.artists[0].adamid}`}>
+              <Link to={`/artist/${song?.relationships?.artists?.data[0]?.id}`}>
                 <Image
                   alt={song.subtitle}
                   src={song.images?.background}
