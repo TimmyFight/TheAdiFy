@@ -12,7 +12,7 @@ import PlayPause from "../../Atoms/PlayPause/PlayPause";
 const SingleTrack = ({ song, isPlaying, activeSong, data, i }) => {
   const title = song.title;
   const description = song.subtitle;
-  const image = song.images?.coverart;
+  const image = song.attributes?.artwork?.url;
 
   const dispatch = useDispatch();
 
@@ -37,12 +37,12 @@ const SingleTrack = ({ song, isPlaying, activeSong, data, i }) => {
         />
         <Image src={image ? image : loader} alt={title} />
       </section>
-      <Link to={`/song/${song?.key}`}>
+      <Link to={`/song/${song?.id}`}>
         <TitleH3>{title}</TitleH3>
       </Link>
       <Link
         to={
-          song.artists ? `/artist/${song?.artists[0]?.adamid}` : "/top-artists"
+          song?.relationships?.artists ? `/artist/${song?.relationships?.artists?.data[0]?.id}` : "/top-artists"
         }
       >
         <Description>{description}</Description>
