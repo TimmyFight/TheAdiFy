@@ -38,7 +38,7 @@ const AroundYou = () => {
           return (
             <SingleTrack
               song={song}
-              key={song.key}
+              key={song.id}
               isPlaying={isPlaying}
               activeSong={activeSong}
               data={data}
